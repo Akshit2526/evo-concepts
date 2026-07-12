@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
+const avenir = localFont({
+  src: "../public/fonts/Avenir Light.ttf",
+  variable: "--font-avenir",
+});
+
+const orbitron = localFont({
+  src: "../public/fonts/Orbitron-Black.ttf",
+  variable: "--font-orbitron",
 });
 
 export const metadata: Metadata = {
   title: "EVO CONCEPTS",
-  description: "Premium Architecture & Interior Design Studio",
-  keywords: [
-    "Architecture",
-    "Interior Design",
-    "Visualization",
-    "EVO CONCEPTS",
-  ],
+  description: "Premium Performance Automotive Parts",
 };
 
 export default function RootLayout({
@@ -24,10 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={manrope.variable}>
-      <body className="bg-black text-white antialiased">
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${avenir.variable} ${orbitron.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
