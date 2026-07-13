@@ -21,10 +21,28 @@ html{
 }
 
 body{
-  background: radial-gradient(circle at top,#3a0058 0%,#1b0028 45%,#0b0012 100%);
   color:white;
   overflow-x:hidden;
   font-family:var(--font-avenir);
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(139,66,255,0.22) 0%,
+      rgba(139,66,255,0.10) 30%,
+      rgba(139,66,255,0.03) 55%,
+      transparent 75%
+    ),
+
+    linear-gradient(
+      180deg,
+      #180022 0%,
+      #180022 100%
+    );
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -172,4 +190,129 @@ button:hover{
 
   }
 
+}
+
+/* ================= HERO AMBIENT GLOW ================= */
+
+@keyframes ambientBreathLeft {
+
+  0%{
+    transform:scale(1);
+    opacity:.35;
+  }
+
+  50%{
+    transform:scale(1.08);
+    opacity:.48;
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:.35;
+  }
+
+}
+
+@keyframes ambientBreathRight {
+
+  0%{
+    transform:scale(1);
+    opacity:.20;
+  }
+
+  50%{
+    transform:scale(1.06);
+    opacity:.30;
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:.20;
+  }
+
+}
+
+.ambient-left{
+  animation: ambientBreathLeft 2.8s ease-in-out infinite;
+}
+
+.ambient-right{
+  animation: ambientBreathRight 3.2s ease-in-out infinite;
+}
+/* ================= TRUSTED BRANDS ================= */
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-top:45px;   /* heading se gap */
+
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeMove 55s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeMove {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+/* ================= GLOBAL HOMEPAGE BACKGROUND ================= */
+
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 15% 10%, rgba(139,66,255,.30) 0%, transparent 28%),
+    radial-gradient(circle at 85% 25%, rgba(139,66,255,.22) 0%, transparent 32%),
+    radial-gradient(circle at 50% 55%, rgba(139,66,255,.12) 0%, transparent 38%),
+    radial-gradient(circle at 20% 90%, rgba(139,66,255,.18) 0%, transparent 28%),
+    radial-gradient(circle at 85% 85%, rgba(139,66,255,.18) 0%, transparent 30%),
+    linear-gradient(
+      180deg,
+      #250038 0%,
+      #1b002d 20%,
+      #23003a 45%,
+      #170026 70%,
+      #220038 100%
+    );
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+
+  background-size: 8px 8px;
+
+  opacity: .06;
 }
