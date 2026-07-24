@@ -1,6 +1,7 @@
 "use client";
 
 import type { Product } from "./data";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -8,6 +9,19 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
+    <Link
+      href={
+        product.id === 1
+          ? `/performance-parts/${product.slug}`
+          : "#"
+      }
+      className={
+        product.id === 1
+          ? "block"
+          : "pointer-events-none block"
+      }
+    >
+    
     <div className="group flex flex-col items-center">
 
       {/* Card */}
@@ -103,5 +117,6 @@ export default function ProductCard({ product }: ProductCardProps) {
       </h3>
 
     </div>
+    </Link>
   );
 }

@@ -6,8 +6,12 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-avenir: var(--font-avenir);
-  --font-orbitron: var(--font-orbitron);
+--font-avenir-light: var(--font-avenir-light);
+--font-avenir-roman: var(--font-avenir-roman);
+--font-avenir-medium: var(--font-avenir-medium);
+--font-avenir-black-oblique: var(--font-avenir-black-oblique);
+--font-avenir-light-oblique: var(--font-avenir-light-oblique);
+--font-orbitron: var(--font-orbitron);
 }
 
 *{
@@ -23,7 +27,7 @@ html{
 body{
   color:white;
   overflow-x:hidden;
-  font-family:var(--font-avenir);
+  font-family:var(--font-avenir-light);
 
   background:
     radial-gradient(
@@ -245,7 +249,7 @@ button:hover{
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding-top:45px;   /* heading se gap */
+  padding-top:45px;   /* heading gap */
 
 }
 
@@ -345,4 +349,37 @@ body::after {
   100% {
     text-shadow: 0 0 5px #b56cff;
   }
+}
+@keyframes shine {
+  from {
+    transform: translateX(-180%) rotate(25deg);
+  }
+
+  to {
+    transform: translateX(380%) rotate(25deg);
+  }
+}
+
+.font-avenir-light {
+  font-family: var(--font-avenir-light);
+}
+
+.font-avenir-roman {
+  font-family: var(--font-avenir-roman);
+}
+
+.font-avenir-medium {
+  font-family: var(--font-avenir-medium);
+}
+
+.font-avenir-black-oblique {
+  font-family: var(--font-avenir-black-oblique);
+}
+
+.font-avenir-light-oblique {
+  font-family: var(--font-avenir-light-oblique);
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron);
 }

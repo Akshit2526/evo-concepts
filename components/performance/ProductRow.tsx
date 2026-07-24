@@ -27,23 +27,29 @@ export default function ProductRow({
     const cards = rowRef.current?.children;
     if (!cards || cards.length === 0) return;
 
-    gsap.set(cards, {
-      opacity: 0,
-      y: 50,
-    });
+   gsap.set(cards, {
+  opacity: 0.25,
+  y: 40,
+  filter: "blur(8px)",
+  scale: 0.98,
+});
 
-    gsap.to(cards, {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      ease: "power3.out",
-      stagger: 0.08,
-      scrollTrigger: {
-        trigger: rowRef.current,
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-    });
+gsap.to(cards, {
+  opacity: 1,
+  y: 0,
+  filter: "blur(0px)",
+  scale: 1,
+  duration: 1,
+  ease: "power4.out",
+  stagger: 0.12,
+  overwrite: "auto",
+  scrollTrigger: {
+  trigger: rowRef.current,
+  start: "top 95%",
+  end: "top 45%",
+  scrub: 1.5,
+},
+});
   }, [immediate]);
 
   return (

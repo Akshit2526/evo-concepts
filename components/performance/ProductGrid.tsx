@@ -11,7 +11,7 @@ export default function ProductGrid() {
   }
 
   return (
-    <section className="w-full">
+    <section className="relative w-full pt-10">
 
       <div className="mx-auto max-w-[1450px] px-8">
 
@@ -28,6 +28,7 @@ export default function ProductGrid() {
         </div>
 
       </div>
+
 
       <div className="h-[180px]" />
 
