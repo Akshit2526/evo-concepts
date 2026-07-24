@@ -3,7 +3,7 @@ import Hero from "../components/home/Hero";
 import TrustedBrands from "../components/home/TrustedBrands";
 import FeaturedProducts from "../components/home/FeaturedProducts";
 import WhyChoose from "../components/home/WhyChoose";
-
+import Footer from "@/components/layout/Footer";
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
@@ -24,6 +24,10 @@ export default function Home() {
       <FeaturedProducts />
 
       <WhyChoose />
+
+      <div className="h-50" />
+
+      <Footer />
 
     </main>
   );

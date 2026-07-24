@@ -316,3 +316,33 @@ body::after {
 
   opacity: .06;
 }
+
+.nav-active {
+  color: #ffffff;
+  position: relative;
+  animation: navPulse 2s ease-in-out infinite;
+}
+
+.nav-active .nav-line {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.nav-active .nav-streak {
+  animation: streak .65s linear infinite;
+}
+
+@keyframes navPulse {
+  0% {
+    text-shadow: 0 0 5px #b56cff;
+  }
+
+  50% {
+    text-shadow:
+      0 0 12px #b56cff,
+      0 0 24px #b56cff;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #b56cff;
+  }
+}
