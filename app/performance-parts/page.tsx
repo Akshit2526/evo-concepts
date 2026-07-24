@@ -10,7 +10,7 @@ export default function PerformancePartsPage() {
       <main className="min-h-screen pt-[120px]">
 
         {/* Spacer */}
-        <div className="h-[140px]" />
+        <div className="h-[170px]" />
         <ProductGrid />
       </main>
 

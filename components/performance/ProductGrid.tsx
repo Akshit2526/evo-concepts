@@ -1,36 +1,33 @@
 "use client";
 
-import ProductCard from "./ProductCard";
+import ProductRow from "./ProductRow";
 import { products } from "./data";
 
 export default function ProductGrid() {
+  const rows = [];
+
+  for (let i = 0; i < products.length; i += 4) {
+    rows.push(products.slice(i, i + 4));
+  }
+
   return (
     <section className="w-full">
 
-      {/* Product Grid */}
+      <div className="mx-auto max-w-[1450px] px-8">
 
-      <div className="mx-auto mt-[90px] max-w-[1450px] px-8">
+        <div className="flex flex-col gap-y-20">
 
-        <div
-          className="
-            grid
-            grid-cols-4
-            justify-items-center
-            gap-x-10
-            gap-y-20
-          "
-        >
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
+          {rows.map((row, index) => (
+            <ProductRow
+              key={index}
+              products={row}
+              immediate={index < 2}
             />
           ))}
+
         </div>
 
       </div>
-
-      {/* Bottom Space */}
 
       <div className="h-[180px]" />
 
