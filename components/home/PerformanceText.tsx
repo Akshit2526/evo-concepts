@@ -11,6 +11,7 @@ export default function PerformanceText() {
           fontSize: "92px",
           fontWeight: 600,
           fontStyle: "italic",
+          
         }}
       >
         PERFORMANCE

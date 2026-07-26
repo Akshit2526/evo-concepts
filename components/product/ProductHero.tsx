@@ -7,7 +7,7 @@ export default function ProductHero() {
   return (
      <section className="mx-auto w-fit pt-16 pb-28 translate-x-12">
 
-      <div className="h-13" />
+      
 
       <div className="flex items-start">
 
@@ -21,11 +21,14 @@ export default function ProductHero() {
 
         {/* GAP */}
 
-        <div className="w-[120px]" />
+        <div className="w-[150px]" />
 
         {/* RIGHT */}
 
-        <div className="flex-1 -mt-10">
+        <div
+  className="flex-1"
+  style={{ marginTop: "-35px" }}
+>
 
           <h1
             className="text-white uppercase tracking-[-0.03em]"
@@ -37,18 +40,17 @@ export default function ProductHero() {
           >
             APR 1.5 TSI OPEN PEX INTAKE SYSTEM
           </h1>
-          <div className="h-2" />
+          <div className="h-0" />
           <p
-            className="mt-8 max-w-[470px] text-[#E5E5E5]"
+            className="mt-8 max-w-[600px] text-[#E5E5E5]"
             style={{
               fontFamily: "Avenir Roman",
               fontSize: "18px",
-              lineHeight: "30px",
+              lineHeight: "26px",
             }}
           >
-            The APR Open PEX Intake System is the
-            best dollar-per-horsepower intake
-            system for the 1.5T Engine!
+            The APR Open PEX Intake System is the best dollar-per-horsepower intake
+            system for the 1.5 TSI Engine!
           </p>
          
          <div className="h-4" />

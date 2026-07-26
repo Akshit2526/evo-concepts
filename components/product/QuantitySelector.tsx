@@ -20,8 +20,8 @@ export default function QuantitySelector() {
         onClick={decrease}
         className="
           flex
-          h-[56px]
-          w-[56px]
+          h-[46px]
+          w-[46px]
           items-center
           justify-center
           rounded-xl
@@ -42,8 +42,8 @@ export default function QuantitySelector() {
       <div
         className="
           flex
-          h-[56px]
-          w-[90px]
+          h-[46px]
+          w-[60px]
           items-center
           justify-center
           rounded-xl
@@ -62,8 +62,8 @@ export default function QuantitySelector() {
         onClick={increase}
         className="
           flex
-          h-[56px]
-          w-[56px]
+          h-[46px]
+          w-[46px]
           items-center
           justify-center
           rounded-xl

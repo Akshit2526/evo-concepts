@@ -4,9 +4,11 @@
 
 import { useState } from "react";
 import QuantitySelector from "./QuantitySelector";
+import { useRouter } from "next/navigation";
 
 export default function PurchaseSection() {
   const [accepted, setAccepted] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="mt-12 w-full max-w-[520px]">
@@ -96,34 +98,36 @@ export default function PurchaseSection() {
 
       {/* BUY NOW */}
 
-      <button
-        disabled={!accepted}
-        className="
-          mt-8
-          h-[55px]
-          w-full
-          rounded-[14px]
-          border
-          border-[#8B42FF]
-          bg-gradient-to-r
-          from-[#5C16FF]
-          to-[#8C3DFF]
-          text-white
-          transition-all
-          duration-300
-          hover:scale-[1.02]
-          hover:shadow-[0_0_25px_rgba(110,30,255,.45)]
-          disabled:opacity-40
-          disabled:hover:scale-100
-        "
-        style={{
-          fontFamily: "Avenir Medium",
-          fontSize: "19px",
-          letterSpacing: ".08em",
-        }}
-      >
-        BUY IT NOW
-      </button>
+        <button
+  disabled={!accepted}
+  onClick={() => router.push("/checkout")}
+  className="
+    mt-8
+    h-[55px]
+    w-full
+    rounded-[14px]
+    border
+    border-[#8B42FF]
+    bg-gradient-to-r
+    from-[#5C16FF]
+    to-[#8C3DFF]
+    text-white
+    transition-all
+    duration-300
+    hover:scale-[1.02]
+    hover:shadow-[0_0_25px_rgba(110,30,255,.45)]
+    disabled:opacity-40
+    disabled:hover:scale-100
+  "
+  style={{
+    fontFamily: "Avenir Medium",
+    fontSize: "19px",
+    letterSpacing: ".08em",
+    cursor: accepted ? "pointer" : "not-allowed",
+  }}
+>
+  BUY IT NOW
+</button>
 
     </div>
   );

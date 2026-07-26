@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import ProductHero from "@/components/product/ProductHero";
+import ProductInfo from "@/components/product/ProductInfo";
 
 export default function ProductPage() {
   return (
@@ -18,6 +19,8 @@ export default function ProductPage() {
       <div className="h-[200px]" />
 
       <ProductHero />
+
+      <ProductInfo />
 
     </main>
   );
