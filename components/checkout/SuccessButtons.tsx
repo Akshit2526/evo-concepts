@@ -1,9 +1,18 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useCheckoutStore } from "@/store/checkoutStore";
 
 export default function SuccessButtons() {
   const router = useRouter();
+
+  const { clearProduct } = useCheckoutStore();
+
+const handleContinueShopping = () => {
+  clearProduct();
+
+  router.push("/");
+};
 
   const buttonStyle: React.CSSProperties = {
     width: "100%",
@@ -19,8 +28,8 @@ export default function SuccessButtons() {
     <section>
 
       <button
-        onClick={() => router.push("/")}
-        style={{
+      onClick={handleContinueShopping}
+          style={{
           ...buttonStyle,
           border: "none",
           color: "#FFFFFF",
