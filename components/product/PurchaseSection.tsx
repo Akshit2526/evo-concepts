@@ -5,10 +5,27 @@
 import { useState } from "react";
 import QuantitySelector from "./QuantitySelector";
 import { useRouter } from "next/navigation";
+import { useCheckoutStore } from "@/store/checkoutStore";
+import { performanceProducts } from "@/data/products/performance";
 
 export default function PurchaseSection() {
   const [accepted, setAccepted] = useState(false);
   const router = useRouter();
+  const {
+  setProduct,
+  quantity,
+  setQuantity,
+} = useCheckoutStore();
+
+ const handleBuyNow = () => {
+  const currentQuantity = quantity;
+
+  setProduct(performanceProducts[0]);
+
+  setQuantity(currentQuantity);
+
+  router.push("/checkout");
+};
 
   return (
     <div className="mt-12 w-full max-w-[520px]">
@@ -100,7 +117,7 @@ export default function PurchaseSection() {
 
         <button
   disabled={!accepted}
-  onClick={() => router.push("/checkout")}
+  onClick={handleBuyNow}
   className="
     mt-8
     h-[55px]

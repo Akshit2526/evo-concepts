@@ -1,6 +1,60 @@
 "use client";
 
+import Image from "next/image";
+import { useCheckoutStore } from "@/store/checkoutStore";
+import { formatPrice } from "@/lib/formatPrice";
+
 export default function OrderSummary() {
+  const { selectedProduct, quantity } = useCheckoutStore();
+
+  if (!selectedProduct) {
+    return (
+      <aside
+        style={{
+          position: "sticky",
+          top: "120px",
+        }}
+      >
+        <div
+          style={{
+            borderRadius: "24px",
+            border: "1px solid rgba(110,30,255,.30)",
+            background: "rgba(255,255,255,.04)",
+            padding: "34px",
+            backdropFilter: "blur(18px)",
+            textAlign: "center",
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: "Orbitron",
+              fontSize: "30px",
+              color: "#FFFFFF",
+              textTransform: "uppercase",
+            }}
+          >
+            Order Summary
+          </h2>
+
+          <div style={{ height: "24px" }} />
+
+          <p
+            style={{
+              color: "#CFCFCF",
+              fontFamily: "Avenir Roman",
+              fontSize: "18px",
+            }}
+          >
+            No Product Selected
+          </p>
+        </div>
+      </aside>
+    );
+  }
+
+  const subtotal = selectedProduct.price * quantity;
+  const total = subtotal;
+
   return (
     <aside
       style={{
@@ -30,8 +84,6 @@ export default function OrderSummary() {
 
         <div style={{ height: "30px" }} />
 
-        {/* PRODUCT */}
-
         <div
           style={{
             display: "flex",
@@ -44,13 +96,23 @@ export default function OrderSummary() {
               width: "90px",
               height: "90px",
               borderRadius: "18px",
+              overflow: "hidden",
+              position: "relative",
               background: "rgba(255,255,255,.05)",
               border: "1px solid rgba(255,255,255,.10)",
             }}
-          />
+          >
+            <Image
+              src={selectedProduct.images[0]}
+              alt={selectedProduct.name}
+              fill
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </div>
 
           <div>
-
             <div
               style={{
                 color: "#FFFFFF",
@@ -59,9 +121,7 @@ export default function OrderSummary() {
                 lineHeight: "28px",
               }}
             >
-              APR 1.5 TSI
-              <br />
-              OPEN PEX INTAKE
+              {selectedProduct.name}
             </div>
 
             <div style={{ height: "10px" }} />
@@ -73,31 +133,48 @@ export default function OrderSummary() {
                 fontSize: "15px",
               }}
             >
-              Qty : 1
+              Qty : {quantity}
             </div>
 
+            <div
+              style={{
+                marginTop: "8px",
+                color: "#7D7D7D",
+                fontFamily: "Avenir Roman",
+                fontSize: "13px",
+              }}
+            >
+              SKU : {selectedProduct.sku}
+            </div>
           </div>
-
         </div>
 
         <div style={{ height: "35px" }} />
-
-        <div
+                <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             marginBottom: "18px",
           }}
         >
-          <span style={{ color: "#BFBFBF" }}>Subtotal</span>
+          <span
+            style={{
+              color: "#BFBFBF",
+              fontFamily: "Avenir Roman",
+              fontSize: "16px",
+            }}
+          >
+            Subtotal
+          </span>
 
           <span
             style={{
               color: "#FFFFFF",
               fontFamily: "Avenir Medium",
+              fontSize: "16px",
             }}
           >
-            ₹44,800
+            {formatPrice(subtotal)}
           </span>
         </div>
 
@@ -108,7 +185,13 @@ export default function OrderSummary() {
             marginBottom: "18px",
           }}
         >
-          <span style={{ color: "#BFBFBF" }}>
+          <span
+            style={{
+              color: "#BFBFBF",
+              fontFamily: "Avenir Roman",
+              fontSize: "16px",
+            }}
+          >
             Shipping
           </span>
 
@@ -116,6 +199,7 @@ export default function OrderSummary() {
             style={{
               color: "#7C3AED",
               fontFamily: "Avenir Medium",
+              fontSize: "16px",
             }}
           >
             FREE
@@ -129,7 +213,13 @@ export default function OrderSummary() {
             marginBottom: "30px",
           }}
         >
-          <span style={{ color: "#BFBFBF" }}>
+          <span
+            style={{
+              color: "#BFBFBF",
+              fontFamily: "Avenir Roman",
+              fontSize: "16px",
+            }}
+          >
             GST
           </span>
 
@@ -137,6 +227,7 @@ export default function OrderSummary() {
             style={{
               color: "#FFFFFF",
               fontFamily: "Avenir Medium",
+              fontSize: "16px",
             }}
           >
             Included
@@ -149,14 +240,13 @@ export default function OrderSummary() {
             paddingTop: "28px",
           }}
         >
-
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-
             <span
               style={{
                 color: "#FFFFFF",
@@ -172,13 +262,12 @@ export default function OrderSummary() {
                 color: "#FFFFFF",
                 fontFamily: "Avenir Black",
                 fontSize: "28px",
+                transition: "all .25s ease",
               }}
             >
-              ₹44,800
+              {formatPrice(total)}
             </span>
-
           </div>
-
         </div>
 
         <div style={{ height: "35px" }} />
@@ -212,7 +301,6 @@ export default function OrderSummary() {
           >
             30 July – 1 August
           </div>
-
         </div>
 
         <div style={{ height: "28px" }} />
@@ -227,7 +315,6 @@ export default function OrderSummary() {
         >
           🔒 256-bit Secure Checkout
         </div>
-
       </div>
     </aside>
   );

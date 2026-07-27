@@ -1,23 +1,18 @@
 "use client";
 
-import { useState } from "react";
-
+import { useCheckoutStore } from "@/store/checkoutStore";
 export default function QuantitySelector() {
-  const [quantity, setQuantity] = useState(1);
-
-  const decrease = () => {
-    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
-  };
-
-  const increase = () => {
-    setQuantity((prev) => prev + 1);
-  };
+  const {
+  quantity,
+  increaseQuantity,
+  decreaseQuantity,
+} = useCheckoutStore();
 
   return (
     <div className="flex items-center gap-4">
 
       <button
-        onClick={decrease}
+        onClick={decreaseQuantity}
         className="
           flex
           h-[46px]
@@ -59,7 +54,7 @@ export default function QuantitySelector() {
       </div>
 
       <button
-        onClick={increase}
+        onClick={increaseQuantity}
         className="
           flex
           h-[46px]
