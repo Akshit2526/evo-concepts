@@ -20,25 +20,7 @@ export default function Steering() {
     className="mx-auto transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
   />
 
-  <div
-    className="
-      absolute
-      left-[-45%]
-      top-0
-      h-full
-      w-[35%]
-      rotate-[20deg]
-      bg-gradient-to-r
-      from-transparent
-      via-white/35
-      to-transparent
-      opacity-0
-      transition-all
-      duration-700
-      group-hover:left-[120%]
-      group-hover:opacity-100
-    "
-  />
+  
 
 </div>
       <h2
