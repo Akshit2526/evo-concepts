@@ -3,6 +3,7 @@
 export default function OurStory() {
   return (
     <section
+      id="our-story"
       style={{
         display: "flex",
         justifyContent: "center",

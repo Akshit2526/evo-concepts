@@ -3,7 +3,7 @@ import Hero from "../components/home/Hero";
 import TrustedBrands from "../components/home/TrustedBrands";
 import FeaturedProducts from "../components/home/FeaturedProducts";
 import WhyChoose from "../components/home/WhyChoose";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/footer-v5/Footer";
 export default function Home() {
   return (
     <main className="relative overflow-hidden">

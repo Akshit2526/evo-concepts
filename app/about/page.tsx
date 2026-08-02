@@ -3,15 +3,16 @@ import OurStory from "@/components/about/OurStory";
 import WhyChooseUs from "@/components/about/WhyChooseUs";
 import BrandValues from "@/components/about/BrandValues";
 import CTASection from "@/components/about/CTASection";
+import Footer from "@/components/footer-v5/Footer";
 
 export default function AboutPage() {
   return (
-    <main className="w-full overflow-hidden">
-      <AboutHero />
-      <OurStory />
-      <WhyChooseUs />
-      <BrandValues />
-      <CTASection />
-    </main>
+    <><main className="w-full overflow-hidden">
+          <AboutHero />
+          <OurStory />
+          <WhyChooseUs />
+          <BrandValues />
+          <CTASection />
+      </main><Footer /></>
   );
 }

@@ -30,6 +30,7 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <section
+      id="why-choose-us"
       style={{
         display: "flex",
         justifyContent: "center",
